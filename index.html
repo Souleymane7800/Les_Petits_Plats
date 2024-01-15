@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="./css/style.css">
+      <title>Les petits plats</title>
+      <script src="https://kit.fontawesome.com/690961c80d.js" crossorigin="anonymous"></script>
+      <!-- Link Bootstrap -->
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+            crossorigin="anonymous"></script>
+</head>
+
+<body>
+      <header >
+            <div class="container-header container-fluid">
+
+                  <img src="./images/logo/Logo.png" alt="logo" class="logo">
+                  <img src="./images/background_petit_plat.jpg" alt="background image" class="background-img" width="1440"
+                        height="667">
+            </div>
+            <!-- <img src="./images/text/CHERCHEZ PARMI PLUS DE 1500 RECETTES DU QUOTIDIEN,SIMPLES ET DÉLICIEUSES.png" alt="" class="text"> -->
+      </header>
+      <main id="main">
+            <section class="search-container">
+                  <h1 class="slogan">CHERCHEZ PARMI PLUS DE 1500 RECETTES DU QUOTIDIEN,SIMPLES ET DÉLICIEUSES</h1>
+                  <div class="input-container">
+                        <input type="text" id="search-input" placeholder="Rechercher une recette, un ingrédient, ...">
+                        <i class="fa-solid fa-magnifying-glass" id="searchButton"></i>
+                  </div>
+
+
+            </section>
+            <!-- a verifier -->
+            <section class="filter-container">
+                  <div class="dropdown-container container-fluid">
+                        <div class="dropdown-ingredient">
+                              <!-- a vérifier -->
+                              <div class="dropdown-ingredient-visible d-flex justify-content-between">
+                                    <h2>Ingrédients</h2>
+                                    <svg id="dropdownArrowIng" xmlns="http://www.w3.org/2000/svg" width="15" height="8"
+                                          viewBox="0 0 15 8" fill="none">
+                                          <path d="M1 1L7.5 7L14 1" stroke="#1B1B1B" stroke-linecap="round" />
+                                    </svg>
+                              </div>
+                              <div class="ingredient-input-container">
+                                    <input type="text" class="ingredient-input" id="ingredient-input" tabindex="-1">
+                                    <svg class="glass-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                                          viewBox="0 0 14 14" fill="none">
+                                          <circle cx="5" cy="5" r="4.75" stroke="#7A7A7A" stroke-width="0.5" />
+                                          <line x1="9.17678" y1="9.32322" x2="13.6768" y2="13.8232" stroke="#7A7A7A"
+                                                stroke-width="0.5" />
+                                    </svg>
+                              </div>
+                              <div class="ingredient-list" id="ingredient-list"></div>
+                        </div>
+
+                        <div class="dropdown-appareil">
+                              <!-- a vérifier -->
+                              <div class="dropdown-appareil-visible">
+                                    <h2>Appareils</h2>
+                                    <svg id="dropdownArrowApp" xmlns="http://www.w3.org/2000/svg" width="15" height="8"
+                                          viewBox="0 0 15 8" fill="none">
+                                          <path d="M1 1L7.5 7L14 1" stroke="#1B1B1B" stroke-linecap="round" />
+                                    </svg>
+                              </div>
+                              <div class="appareil-input-container">
+                                    <input type="text" class="appareil-input" id="appareil-input" tabindex="-1">
+                                    <svg class="glass-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                                          viewBox="0 0 14 14" fill="none">
+                                          <circle cx="5" cy="5" r="4.75" stroke="#7A7A7A" stroke-width="0.5" />
+                                          <line x1="9.17678" y1="9.32322" x2="13.6768" y2="13.8232" stroke="#7A7A7A"
+                                                stroke-width="0.5" />
+                                    </svg>
+                              </div>
+                              <div class="appareil-list"></div>
+                        </div>
+                        <div class="dropdown-ustensil">
+                              <!-- a vérifier -->
+                              <div class="dropdown-ustensil-visible">
+                                    <h2>ustensils</h2>
+                                    <svg id="dropdownArrowUst" xmlns="http://www.w3.org/2000/svg" width="15" height="8"
+                                          viewBox="0 0 15 8" fill="none">
+                                          <path d="M1 1L7.5 7L14 1" stroke="#1B1B1B" stroke-linecap="round" />
+                                    </svg>
+                              </div>
+                              <div class="ustensil-input-container">
+                                    <input type="text" class="ustensil-input" id="ustensil-input" tabindex="-1">
+                                    <svg class="glass-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                                          viewBox="0 0 14 14" fill="none">
+                                          <circle cx="5" cy="5" r="4.75" stroke="#7A7A7A" stroke-width="0.5" />
+                                          <line x1="9.17678" y1="9.32322" x2="13.6768" y2="13.8232" stroke="#7A7A7A"
+                                                stroke-width="0.5" />
+                                    </svg>
+                              </div>
+                              <div class="ustensil-list"></div>
+                        </div>
+                  </div>
+                  <div class="total-container">
+                        <h2 id="total-recipes"></h2>
+                  </div>
+            </section>
+
+            <!-- Affichage des recettes -->
+            <section id="filter-section">
+            </section>
+            <section id="recipeSection" class="recipeSection">
+                  <!-- <ul id="recipeList" class="recipeList d-flex flex-wrap" width="1440"></ul> -->
+            </section>
+      </main>
+      <!-- Chargement des scripts -->
+      <script src="scripts/index.js" type="module"></script>
+      <script src="scripts/utils/mainSearch.js" type="module"></script>
+
+</body>
+
+</html>

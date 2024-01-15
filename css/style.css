@@ -1,0 +1,172 @@
+/* Box sizing */
+*,
+*::before,
+*::after {
+      box-sizing: border-box;
+}
+
+* {
+      margin: 0;
+}
+
+html {
+      width: 100%;
+      margin: 0;
+}
+body {
+      max-width: 1440px;
+      margin: 0 auto;
+      background: #EDEDED;
+}
+
+/* HEADER */
+.container-header {
+      display: flex;
+      align-items: center;
+      height: 667px;
+      /* position: relative; */
+}
+
+.logo {
+      position: absolute;
+      padding: 60px;
+      top: 25px;
+}
+
+.background-img {
+      /* width: 100vw; */
+      /* height: 65vh; */
+      object-fit: cover;
+      /* height: 667px; */
+      /* width: 100%; */
+      min-height: 337px;
+}
+
+.search-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+}
+
+.slogan {
+      display: flex;
+      position: absolute;
+      text-align: center;
+      font-family: 'Anton', sans-serif;
+      top: 26%;
+      color: #FFD15B;
+      font-weight: 400;
+      font-size: 44px;
+      width: 51%;
+      line-height: 66.24px;
+      top: 26%;
+}
+
+.input-container {
+      position: absolute;
+      margin-top: 10px;
+      text-align: center;
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 65%;
+      top: 42%;
+}
+
+#search-input {
+      padding-right: 30px;
+
+}
+
+.fa-magnifying-glass {
+      position: absolute;
+      top: 40%;
+      right: 10px;
+      transform: translateY(-50%);
+      font-size: 30px;
+
+}
+
+input {
+      /* position: fixed; */
+      top: 43%;
+      height: 76px;
+      width: 100%;
+      border-radius: 10px;
+}
+
+
+/* Media query pour écran de taille maximale 768px */
+
+
+/* TAGS */
+.dropdown-container {
+      height: 200px;
+      border: 2px solid red;
+      display: flex;
+}
+
+/* CARDS */
+.recipeSection {
+      padding-top: 22px;
+      padding-left: clamp(7px, calc(3.5vw + 2px), 102px);
+      padding-right: clamp(7px, calc(3.5vw + 2px), 102px);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      row-gap: clamp(7px, calc(4vw + 6px), 66px);
+      column-gap: clamp(7px, calc(3vw + 6px), 48px);
+      background: #EDEDED;
+}
+
+.card-container {
+      border-radius: 21px;
+      background: #FFF;
+      box-shadow: 0px 4px 34px 30px rgba(0, 0, 0, 0.04);
+      /* test */
+      position: relative;
+}
+
+.card-container img {
+      object-fit: cover;
+      height: 253px;
+      width: 100%;
+      border-radius: 20px 20px 0 0;
+      position: relative;
+}
+
+.recipe-time {
+      background-color: #FFD15B;
+      padding: 5px 15px 5px 15px;
+      border-radius: 14px;
+      width: 85px;
+      height: 26px;
+      gap: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      left: 295px;
+      position: absolute;
+      top: 21px;
+      font-family: 'Manrope', sans-serif;
+      font-weight: 400;
+      font-size: 12px;
+}
+
+/* .card-desc h1 {
+      width: 193px;
+      height: 27px;
+      left: 25px;
+      top: 285px;
+      font-family: 'Anton', sans-serif;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 27.1px;
+      position: absolute;
+      color: #000;
+} */
+
+/* test */
+.desc-container {
+      border: 2px solid blue;
+}
