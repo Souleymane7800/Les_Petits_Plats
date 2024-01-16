@@ -57,9 +57,13 @@ function createRecipeCard(recipe, index) {
     containerDescText.classList.add('card-desc');
     // Non de la recette
     const cardName = document.createElement( 'h1' );
+    cardName.classList.add('recipe-name');
     cardName.textContent = recipe.name;
+    // Container description
+    // const containerFrame
     // Recette
     const recette = document.createElement( 'h2' );
+    recette.classList.add('recipe-desc-title');
     recette.textContent = 'Recette';
     // Description
     const descContainer = document.createElement( 'div' );
@@ -70,7 +74,8 @@ function createRecipeCard(recipe, index) {
     recipeDesc.textContent = recipe.description;
     // Ingredient
     const ingredient = document.createElement( 'h2' );
-    ingredient.textContent = 'Ingredients';
+    ingredient.classList.add('recipe-desc-ingredient');
+    ingredient.textContent = 'Ingrédients';
     const ingredientRecipe = document.createElement( 'div' );
     ingredientRecipe.classList.add('recipe-ingredient');
 
@@ -97,12 +102,13 @@ function createRecipeCard(recipe, index) {
 
 
     descContainer.appendChild(recipeDesc);
-    containerDescText.appendChild(cardName);
     containerDescText.appendChild(recette);
     containerDescText.appendChild(recipeDesc);
+    // recette.appendChild(recipeDesc)
     containerDescText.appendChild(ingredient);
     containerDescText.appendChild(ingredientRecipe);
     article.appendChild(image);
+    article.appendChild(cardName);
     article.appendChild(recipeTime);
     article.appendChild(containerDescText);
     card.appendChild(article)
@@ -116,6 +122,7 @@ function createRecipeCard(recipe, index) {
 
 // Compteur de recette
 function totalRecipes() {
+    const dropdownCoutainer = document.querySelector('dropdown-container'); //test
     const containerCount = document.getElementById('total-recipes');
     const recipesCards = document.querySelectorAll('.card-container');
     const totalOfRecipes = recipesCards.length;
@@ -127,6 +134,7 @@ function totalRecipes() {
         recipesCount = totalOfRecipes.length === 1 ? 'recette' : 'recettes';
     }
     containerCount.textContent = totalOfRecipes === 0 ? recipesCount : `${totalOfRecipes} ${recipesCount}`;
+    containerCount.appendChild(dropdownCoutainer)
     console.log(recipesCards.length);
     console.log(containerCount);
 }

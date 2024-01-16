@@ -13,6 +13,7 @@ html {
       width: 100%;
       margin: 0;
 }
+
 body {
       max-width: 1440px;
       margin: 0 auto;
@@ -53,13 +54,13 @@ body {
       position: absolute;
       text-align: center;
       font-family: 'Anton', sans-serif;
-      top: 26%;
+      /* top: 20%; */
       color: #FFD15B;
       font-weight: 400;
       font-size: 44px;
-      width: 51%;
-      line-height: 66.24px;
-      top: 26%;
+      width: 37%;
+      line-height: 1.3;
+      top: 33%;
 }
 
 .input-container {
@@ -70,8 +71,8 @@ body {
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 65%;
-      top: 42%;
+      width: 50%;
+      top: 47%;
 }
 
 #search-input {
@@ -105,6 +106,20 @@ input {
       height: 200px;
       border: 2px solid red;
       display: flex;
+      align-items: center;
+}
+
+#total-recipes {
+      color: #1B1B1B;
+      font-family: 'Anton', sans-serif;
+      font-weight: 400;
+      font-size: 21px;
+      line-height: 31.61px;
+      /* a verifier */
+      position: absolute;
+      top: 75%;
+      right: 15%;
+      /* width: 115px; */
 }
 
 /* CARDS */
@@ -125,6 +140,9 @@ input {
       box-shadow: 0px 4px 34px 30px rgba(0, 0, 0, 0.04);
       /* test */
       position: relative;
+      width: 380px;
+      height: 731px;
+      /* top: 799px; */
 }
 
 .card-container img {
@@ -139,7 +157,7 @@ input {
       background-color: #FFD15B;
       padding: 5px 15px 5px 15px;
       border-radius: 14px;
-      width: 85px;
+      width: 63px;
       height: 26px;
       gap: 10px;
       display: flex;
@@ -153,6 +171,79 @@ input {
       font-size: 12px;
 }
 
+.recipe-name {
+      font-family: 'Anton', sans-serif;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 27.1px;
+      color: #000000;
+      left: 25px;
+      padding-top: 21px;
+      padding-bottom: 10px;
+      padding-left: 25px;
+      /* position: absolute; */
+      /* top: 285px; */
+}
+
+.card-desc {
+      width: 330px;
+      height: 329px;
+      padding-left: 25px;
+      gap: 32px;
+      
+}
+
+.recipe-desc-title,
+.recipe-desc-ingredient {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 16.39px;
+      letter-spacing: 0.09em;
+      color: #7A7A7A;
+      text-transform: uppercase;
+      padding-bottom: 15px;
+      padding-top: 25px;
+
+}
+
+.recipe-desc  {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      color: #1B1B1B;
+      line-height: 19.12px;
+      overflow: hidden;
+      max-height: 76px;
+      line-height: normal;
+      font-style: normal;
+      text-overflow: ellipsis;
+      /* padding-bottom: 15px; */
+      white-space: nowrap;
+
+}
+
+.recipe-ingredient {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+}
+
+.ingredient-name {
+      width: 160px;
+      color: #1B1B1B;
+      font-family: 'Manrope', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+}
+
+.ingredient-quantity {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      color: #7A7A7A;
+      line-height: normal;
+}
 /* .card-desc h1 {
       width: 193px;
       height: 27px;
