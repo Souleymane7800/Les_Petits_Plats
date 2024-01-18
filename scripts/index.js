@@ -4,17 +4,13 @@ import { recipes } from '../scripts/data/recipes.js';
 // AddEventListener
 document.addEventListener('DOMContentLoaded', function () {
     displayAllRecipes(recipes);
-    totalRecipes(recipes)
+    totalRecipes(recipes);
 })
 
 
 // Afficher toute les recettes
 function displayAllRecipes(results) {
 
-      // Construction du chemin relatif pour l'image
-    //   const imagePath = `../images/recettes/${recipes.image}`;
-
-     
     results = results || [];
 
     const recipeSection = document.getElementById('recipeSection');
@@ -30,9 +26,6 @@ function displayAllRecipes(results) {
         console.error('Results is not an array:', results);
     }
 }
-
-
-
 
 // Création du dom pour les cards
 function createRecipeCard(recipe, index) {
@@ -56,13 +49,13 @@ function createRecipeCard(recipe, index) {
     const containerDescText = document.createElement( 'div' );
     containerDescText.classList.add('card-desc');
     // Non de la recette
-    const cardName = document.createElement( 'h1' );
+    const cardName = document.createElement( 'h2' );
     cardName.classList.add('recipe-name');
     cardName.textContent = recipe.name;
     // Container description
     // const containerFrame
     // Recette
-    const recette = document.createElement( 'h2' );
+    const recette = document.createElement( 'h3' );
     recette.classList.add('recipe-desc-title');
     recette.textContent = 'Recette';
     // Description
@@ -73,7 +66,7 @@ function createRecipeCard(recipe, index) {
     recipeDesc.classList.add('recipe-desc');
     recipeDesc.textContent = recipe.description;
     // Ingredient
-    const ingredient = document.createElement( 'h2' );
+    const ingredient = document.createElement( 'h3' );
     ingredient.classList.add('recipe-desc-ingredient');
     ingredient.textContent = 'Ingrédients';
     const ingredientRecipe = document.createElement( 'div' );
@@ -99,8 +92,6 @@ function createRecipeCard(recipe, index) {
         ingredientRecipe.appendChild(ingredientContainer)
     });
 
-
-
     descContainer.appendChild(recipeDesc);
     containerDescText.appendChild(recette);
     containerDescText.appendChild(recipeDesc);
@@ -113,11 +104,7 @@ function createRecipeCard(recipe, index) {
     article.appendChild(containerDescText);
     card.appendChild(article)
 
-
-
-
     return card
-
 }
 
 // Compteur de recette
@@ -134,9 +121,7 @@ function totalRecipes() {
         recipesCount = totalOfRecipes.length === 1 ? 'recette' : 'recettes';
     }
     containerCount.textContent = totalOfRecipes === 0 ? recipesCount : `${totalOfRecipes} ${recipesCount}`;
-    containerCount.appendChild(dropdownCoutainer)
-    console.log(recipesCards.length);
-    console.log(containerCount);
+    // containerCount.appendChild(dropdownCoutainer)
 }
 totalRecipes()
 

@@ -1,18 +1,17 @@
 // input
 
-// import { recipes } from ".";
+// import { getOneIngredient } from '../components/ingredientsList.js';
 import { recipes } from '../data/recipes.js';
 import { displayAllRecipes } from '../index.js';
-import { totalRecipes } from '../index.js'
+import { totalRecipes } from '../index.js';
+import { selectedOptions } from './selectedOption.js';
 
-console.log(recipes);
 // Déclaration de la variable searchInput
 let searchInput;
 let results = [];
 
 // Utilisation de la variable searchInput
 searchInput = document.getElementById('search-input');
-console.log(searchInput);
 
 // listener
 searchInput.addEventListener('input', function () {
@@ -26,19 +25,33 @@ function handleSearch() {
       const inputUser = searchInput.value.toLowerCase();
       console.log(inputUser);
       if (inputUser.length >= 3) {
+            selectedOptions = []; // a verifier
             results = recipes.filter(recipe => {
                   // a verifier
-                  const titleMatch = recipe.name.toLowerCase().includes(inputUser);
-                  const ingredientsMatch = recipe.ingredients.some(ingredient => ingredient.ingredient.toLowerCase().includes(inputUser));
-                  const descriptionMatch = recipe.description.toLowerCase().includes(inputUser);
-                  return titleMatch || ingredientsMatch || descriptionMatch;
+                  const titleIsFind = recipe.name.toLowerCase().includes(inputUser);
+                  const ingredientIsFind = recipe.ingredients.some(ingredient => ingredient.ingredient.toLowerCase().includes(inputUser));
+                  const descriptionisFind = recipe.description.toLowerCase().includes(inputUser);
+                  return titleIsFind || ingredientIsFind || descriptionisFind;
             });
             console.log(results);
             displayAllRecipes(results)
-      }
+      };
+};
+
+// Chercher par tags
+function searchByFilter(selectedOptions) {
+      results = recipes.filter(recipe => {
+            return selectedOptions.some(filter => {
+                  if ( recipe.ingredients.some(ingredient => ingredient.ingredient.toLowerCase().includes(filter.toLowerCase()))) {
+                        return true
+                  }
+            })
+      })
+      displayAllRecipes(results);
+      // console.log(selectedOptions);
 }
-// handleSearch()
 
 
-// Exporte results
-export { results };
+
+// Export
+export { results, searchByFilter };
