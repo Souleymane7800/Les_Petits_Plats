@@ -111,7 +111,7 @@ body {
       position: absolute;
       right: 125px;
       top: 30px;
-      /* display: none; */
+      display: none;
 }
 
 .search-icon {
@@ -163,6 +163,7 @@ body {
       position: sticky;
       cursor: pointer;
       top: 0;
+      border: 1px solid blue;
 }
 
 .dropdown-ingredient-visible h2,

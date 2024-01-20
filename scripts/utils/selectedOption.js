@@ -2,6 +2,8 @@
 // import { displayAllRecipes } from '../index.js';
 // import { results } from './mainSearch.js';
 
+// import { filterRecipes } from "./mainSearch";
+
 // Déclaration de la variable selectedOptions
 let selectedOptions = [];
 
@@ -13,7 +15,7 @@ function toggleSelectedOption(ingredient) {
           selectedOptions.splice(index, 1);
       }
       console.log(selectedOptions);
-
+    // filterRecipes()
 
 }
 
