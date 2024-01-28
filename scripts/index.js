@@ -1,7 +1,12 @@
-// Import des scripts
-import { recipes } from '../scripts/data/recipes.js';
 
-// AddEventListener
+// Déclaration de la variable searchInput
+let searchInput;
+let searchClose;
+let results = [];
+let selectedOptions = [];
+// let selectedFilter;
+
+// AddEventListener sur DOM
 document.addEventListener('DOMContentLoaded', function () {
     displayAllRecipes(recipes);
     totalRecipes(recipes);
@@ -10,7 +15,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Afficher toute les recettes
 function displayAllRecipes(results) {
-
     results = results || [];
 
     const recipeSection = document.getElementById('recipeSection');
@@ -109,23 +113,23 @@ function createRecipeCard(recipe, index) {
 
 // Compteur de recette
 function totalRecipes() {
-    const dropdownCoutainer = document.querySelector('dropdown-container'); //test
+
     const containerCount = document.getElementById('total-recipes');
     const recipesCards = document.querySelectorAll('.card-container');
     const totalOfRecipes = recipesCards.length;
+    console.log(totalOfRecipes);
+
     let recipesCount;
 
     if (totalOfRecipes === 0) {
         recipesCount = 'Aucune recette n\a été trouvée'
     } else {
-        recipesCount = totalOfRecipes.length === 1 ? 'recette' : 'recettes';
+        recipesCount = totalOfRecipes === 1 ? 'recette' : 'recettes';
     }
     containerCount.textContent = totalOfRecipes === 0 ? recipesCount : `${totalOfRecipes} ${recipesCount}`;
-    // containerCount.appendChild(dropdownCoutainer)
+    // dropdownContainer.appendChild(containerCount)
 }
-totalRecipes()
 
-export { displayAllRecipes, totalRecipes}
 
 
 

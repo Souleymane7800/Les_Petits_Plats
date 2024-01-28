@@ -145,7 +145,7 @@ body {
       align-items: center;
       padding-left: 80px;
       gap: 50px;
-      position: relative;
+      /* position: relative; */
       background: #EDEDED;
       padding-top: 35px;
       z-index: 10;
@@ -156,14 +156,18 @@ body {
 .dropdown-ustensil-visible {
       display: flex;
       align-items: center;
-      flex-wrap: nowrap;
+      /* flex-wrap: nowrap; */
       justify-content: space-around;
       align-items: center;
       gap: 80px;
-      position: sticky;
+      position: relative;
       cursor: pointer;
       top: 0;
-      border: 1px solid blue;
+      /* border: 1px solid blue; */
+      /* test */
+      background: #FFF;
+      padding: 15px;
+      border-radius: 10px;
 }
 
 .dropdown-ingredient-visible h2,
@@ -177,14 +181,53 @@ body {
       position: relative;
 }
 
-.ingredient-list {
+/* TESTE INPUT ET LISTE*/
+/* .dropdown-menu {
       display: none;
+} */
+.ingredient-input-container,
+.appareil-input-container,
+.ustensil-input-container {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 30;
+      position: absolute;
+      background: #FFF;
+}
+
+.ingredient-input,
+.appareil-input,
+.ustensil-input {
+      width: 55%;
+      height: 35px;
+}
+
+.glass-icon {
       position: relative;
+      right: 30px;
+}
+
+.ingredient-list,
+.ustensil-list,
+.appareil-list {
+      /* display: none;
+      position: relative; */
       /* z-index: 30; */
+      /* cursor: pointer;
+      background: #FFF; */
+      /* height: 200px; */
+      /* overflow: hidden; */
+      /* display: none; */
+      position: absolute;
+      z-index: 20;
       cursor: pointer;
       background: #FFF;
       /* height: 200px; */
+      /* top: 80%; */
       /* overflow: hidden; */
+      padding-top: 60px;
+      width: 210px;
 }
 
 li {
@@ -195,6 +238,16 @@ li {
       /* a verifier */
       line-height: 1.9;
       color: #1B1B1B;
+      /* test */
+      height: 19px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      z-index: 10;
+      width: 195px;
+      padding-left: 16px;
+      cursor: pointer;
+      position: relative;
 }
 
 /* a verifier */
@@ -320,8 +373,17 @@ li {
       font-style: normal;
       text-overflow: ellipsis;
       /* padding-bottom: 15px; */
-      white-space: nowrap;
+      overflow: hidden;
+      /* white-space: nowrap; */
 
+}
+
+.recipe-desc:hover {
+      max-height: 100%;
+}
+
+.recipe-desc:hover .card-container {
+      max-height: 100%;
 }
 
 .recipe-ingredient {

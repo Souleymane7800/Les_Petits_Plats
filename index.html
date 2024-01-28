@@ -73,7 +73,7 @@
                                                 <path d="M1 1L7.5 7L14 1" stroke="#1B1B1B" stroke-linecap="round" />
                                           </svg>
                                     </div>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> -->
                                           <div class="ingredient-input-container">
                                                 <input type="text" class="ingredient-input" id="ingredient-input"
                                                       tabindex="-1">
@@ -85,8 +85,10 @@
                                                             stroke="#7A7A7A" stroke-width="0.5" />
                                                 </svg>
                                           </div>
+                                          <!-- test -->
+                                          <div class="ingredient-selected"></div>
                                           <div class="ingredient-list" id="ingredient-list"></div>
-                                    </div>
+                                    <!-- </div> -->
                               </div>
 
                               <!-- Dropdown Appareils -->
@@ -111,7 +113,7 @@
                                                             stroke="#7A7A7A" stroke-width="0.5" />
                                                 </svg>
                                           </div>
-                                          <div class="appareil-list"></div>
+                                          <div class="appareil-list" id="appareil-list"></div>
                                     </div>
                               </div>
 
@@ -137,10 +139,10 @@
                                                             stroke="#7A7A7A" stroke-width="0.5" />
                                                 </svg>
                                           </div>
-                                          <div class="ustensil-list"></div>
+                                          <div class="ustensil-list" id="ustensil-list"></div>
                                     </div>
                               </div>
-
+                              
                         </div>
                   </div>
                   <div class="total-container">
@@ -156,12 +158,14 @@
             </section>
       </main>
       <!-- Chargement des scripts -->
-      <script src="scripts/index.js" type="module"></script>
-      <script src="scripts/utils/mainSearch.js" type="module"></script>
-      <script src="scripts/utils/selectedOption.js" type="module"></script>
-      <script src="scripts/components/dropdown.js" type="module"></script>
-      <script src="scripts/components/ingredientsList.js" type="module"></script>
-      s
+      <script src="scripts/index.js"></script>
+      <script src="scripts/utils/mainSearch.js"></script>
+      <script src="scripts/data/recipes.js"></script>
+      <script src="scripts/utils/selectedOption.js"></script>
+      <script src="scripts/components/dropdown.js"></script>
+      <script src="scripts/components/ingredientsList.js"></script>
+      <script src="scripts/components/ustensilsList.js"></script>
+      <script src="scripts/components/appliancesList.js"></script>
 
 </body>
 

@@ -1,8 +1,4 @@
 
-import { recipes } from '../data/recipes.js';
-import { results } from '../utils/mainSearch.js';
-import { toggleSelectedOption } from '../utils/selectedOption.js';
-
 // Récupération de la liste des ingrédients
 const allIngredients = recipes.reduce((ingredients, recipe) => {
     recipe.ingredients.forEach(ingredient => {
@@ -60,16 +56,4 @@ if (selectedFilter.children.length === 0 && results.length === 0) {
     })
 }
 
-// console.log(selectedOptions);
-
-// function toggleSelectedOption(ingredient) {
-//     const index = selectedOptions.indexOf(ingredient);
-//     if (index === -1) {
-//         selectedOptions.push(ingredient);
-//     } else {
-//         selectedOptions.splice(index, 1);
-//     }
-//     console.log(selectedOptions);
-// }
-
-export { allIngredients, getOneIngredient, ingredientList };
+// export { allIngredients, getOneIngredient, ingredientList };

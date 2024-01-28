@@ -1,11 +1,7 @@
-// import { searchByFilter } from './mainSearch.js';
-// import { displayAllRecipes } from '../index.js';
-// import { results } from './mainSearch.js';
 
-// import { filterRecipes } from "./mainSearch";
 
 // Déclaration de la variable selectedOptions
-let selectedOptions = [];
+// let selectedOptions = [];
 
 function toggleSelectedOption(ingredient) {
       const index = selectedOptions.indexOf(ingredient);
@@ -14,8 +10,9 @@ function toggleSelectedOption(ingredient) {
       } else {
           selectedOptions.splice(index, 1);
       }
-      console.log(selectedOptions);
-    // filterRecipes()
+      console.log('selectedOptions',selectedOptions);
+    // filterRecipes(selectedOptions)
+    // totalRecipes();
 
 }
 
@@ -26,4 +23,4 @@ function toggleSelectedOption(ingredient) {
 
 
 
-export { toggleSelectedOption, selectedOptions }
+// export { toggleSelectedOption, selectedOptions }
