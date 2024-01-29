@@ -188,12 +188,13 @@ body {
 .ingredient-input-container,
 .appareil-input-container,
 .ustensil-input-container {
-      display: none;
+      /* display: none; */
       justify-content: center;
       align-items: center;
       z-index: 30;
       position: absolute;
       background: #FFF;
+      display: flex;
 }
 
 .ingredient-input,
@@ -228,6 +229,13 @@ body {
       /* overflow: hidden; */
       padding-top: 60px;
       width: 210px;
+      /* display: none; */
+}
+
+#ingredient-list li::first-letter,
+#appareil-list li::first-letter,
+#ustensil-list li::first-letter {
+    text-transform: uppercase;
 }
 
 li {
@@ -236,7 +244,8 @@ li {
       font-size: 14px;
       font-weight: 400;
       /* a verifier */
-      line-height: 1.9;
+      line-height: normal;
+      height: 19px;
       color: #1B1B1B;
       /* test */
       height: 19px;
@@ -248,8 +257,12 @@ li {
       padding-left: 16px;
       cursor: pointer;
       position: relative;
+      /* text-transform: capitalize; */
 }
 
+li:hover {
+      background-color: #FFD15B;
+}
 /* a verifier */
 .dropdownArrowIng,
 .dropdownArrowApp,

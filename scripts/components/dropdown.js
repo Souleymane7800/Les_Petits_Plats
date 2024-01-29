@@ -20,20 +20,23 @@ document.addEventListener('DOMContentLoaded', function () {
       visibleIng.addEventListener('click', function () {
           dropdownArrowIng.classList.toggle('rotate180')
           //dropdownIng.classList.toggle('show'); // à vérifier
-          inputContainer.style.display = inputContainer.style.display === 'none' ? 'flex' : 'none';
+          inputContainer.style.display = (inputContainer.style.display === 'none') ? 'flex' : 'none';
       });
 
       console.log('ligne25 dropdaown');
       visibleApp.addEventListener('click', function () {
           dropdownArrowApp.classList.toggle('rotate180');
           //dropdownApp.classList.toggle('show'); // à vérifier
+          inputContainer.style.display = (inputContainer.style.display === 'none') ? 'flex' : 'none';
       });
       
       console.log('ligne30 dropdaown');
       visibleUst.addEventListener('click', function () {
           dropdownArrowUst.classList.toggle('rotate180');
           //dropdownUst.classList.toggle('show'); // à vérifier
+          inputContainer.style.display = (inputContainer.style.display === 'none') ? 'flex' : 'none';
       });
+
   
       // Dropdown ingrédients
       const inputIng = document.querySelector('#ingredient-input');
@@ -54,12 +57,30 @@ document.addEventListener('DOMContentLoaded', function () {
       //inputIng.appendChild(ingredientList); //test
       dropdownIng.addEventListener('click', function() {
             // Afficher ou masquer la liste au clic
-            ingredientList.style.display = ingredientList.style.display === 'none' ? 'block' : 'none';
+            ingredientList.style.display = (ingredientList.style.display === 'none') ? 'block' : 'none';
             // inputContainer.style.display = inputContainer.style.display === 'none' ? 'flex' : 'none';
       });
 
-      ingredientList.style.display = 'none'; // a revoir 😡
+      //ingredientList.style.display = 'none'; // a revoir 😡
       // inputContainer.style.display = 'none'; // a revoir 😡
+          // Gestion de la recherche dans la liste d'appareils
+      const inputApp = document.querySelector('#appareil-input');
+      inputApp.addEventListener('input', function () {
+            const inputValue = inputApp.value.toLowerCase();
+            const appareilList = document.querySelector('#appareil-list');
+            const appareilOptions = appareilList.querySelectorAll('li');
+            appareilOptions.forEach(option => {
+                  const appareilName = option.textContent.toLowerCase();
+                  const isFind = appareilName.includes(inputValue);
+                  option.style.display = isFind ? 'flex' : 'none';
+            });
+      });
+
+      dropdownApp.addEventListener('click', function() {
+            // Afficher ou masquer la liste au clic
+            appliancesList.style.display = appliancesList.style.display === 'none' ? 'block' : 'none';
+            // inputContainer.style.display = inputContainer.style.display === 'none' ? 'flex' : 'none';
+      });
 
       // Dropdown ustensils
       const inputUst = document.querySelector('#ustensil-input');
