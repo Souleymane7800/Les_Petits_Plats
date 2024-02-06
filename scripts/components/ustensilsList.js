@@ -26,8 +26,6 @@ function getOneUstensil(results) {
 };
 
 const ustensilsList = document.querySelector('#ustensil-list');
-// let selectedFilter = document.querySelector('#filter-options');
-// const selectedFilter = document.querySelector('#filter-options');
 
 ustensilsList.innerHTML = '';
 

@@ -20,7 +20,6 @@ function displayAllRecipes(results) {
     const recipeSection = document.getElementById('recipeSection');
     recipeSection.innerHTML = '';
 
-
     if (Array.isArray(results)) {
         results.forEach((recipe, index) => {
             const card = createRecipeCard(recipe, index);

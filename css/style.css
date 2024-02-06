@@ -140,7 +140,7 @@ body {
 /* DRPODOWN / TAGS */
 .dropdown-container {
       height: 100px;
-      border: 2px solid red;
+      /* border: 2px solid red; */
       display: flex;
       align-items: center;
       padding-left: 80px;
@@ -157,17 +157,21 @@ body {
       display: flex;
       align-items: center;
       /* flex-wrap: nowrap; */
-      justify-content: space-around;
+      justify-content: space-between;
       align-items: center;
-      gap: 80px;
+      gap: 53px;
       position: relative;
       cursor: pointer;
       top: 0;
       /* border: 1px solid blue; */
       /* test */
       background: #FFF;
-      padding: 15px;
+      padding: 17px 16px 17px 16px;
       border-radius: 10px;
+      width: 188px;
+      height: 56px;
+      /* test */
+
 }
 
 .dropdown-ingredient-visible h2,
@@ -188,19 +192,29 @@ body {
 .ingredient-input-container,
 .appareil-input-container,
 .ustensil-input-container {
+      display: none;
+}
+
+.ingredient-input-container.show,
+.appareil-input-container.show,
+.ustensil-input-container.show {
       /* display: none; */
       justify-content: center;
-      align-items: center;
+      /* align-items: center; */
       z-index: 30;
       position: absolute;
       background: #FFF;
+      place-items: center;
       display: flex;
+      /* test */
+      width: 188px;
+      top: 79%;
 }
 
 .ingredient-input,
 .appareil-input,
 .ustensil-input {
-      width: 55%;
+      width: 70%;
       height: 35px;
 }
 
@@ -228,14 +242,19 @@ body {
       /* top: 80%; */
       /* overflow: hidden; */
       padding-top: 60px;
-      width: 210px;
-      /* display: none; */
+      width: 188px;
+      display: none;
 }
 
 #ingredient-list li::first-letter,
 #appareil-list li::first-letter,
-#ustensil-list li::first-letter {
-    text-transform: uppercase;
+#ustensil-list li::first-letter,
+.tagSelected span::first-letter {
+      text-transform: capitalize;
+}
+
+.filter-selected>span::first-letter {
+      text-transform: capitalize;
 }
 
 li {
@@ -245,15 +264,14 @@ li {
       font-weight: 400;
       /* a verifier */
       line-height: normal;
-      height: 19px;
+      height: 25px;
       color: #1B1B1B;
       /* test */
-      height: 19px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
       z-index: 10;
-      width: 195px;
+      width: 200px;
       padding-left: 16px;
       cursor: pointer;
       position: relative;
@@ -263,6 +281,7 @@ li {
 li:hover {
       background-color: #FFD15B;
 }
+
 /* a verifier */
 .dropdownArrowIng,
 .dropdownArrowApp,
@@ -437,4 +456,38 @@ li:hover {
 /* test */
 .desc-container {
       border: 2px solid blue;
+}
+
+/* TAGSELECTED */
+.filter-selected {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      padding: 10px;
+      /* justify-content: space-around; */
+}
+
+.tagSelected {
+      /* width: 141px; */
+      max-width: 203px;
+      height: 53px;
+      background: #FFD15B;
+      border-radius: 10px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      
+      padding: 17px 18px 17px 18px;
+      gap: 12px;
+}
+
+.tagSelected span {
+      font-family: 'Manrope', sans-serif;
+      font-size: 14px;
+      /* width: 150px; */
+}
+
+/* test */
+.show {
+      display: block;
 }

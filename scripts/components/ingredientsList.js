@@ -15,9 +15,9 @@ const allIngredients = recipes.reduce((ingredients, recipe) => {
 function getOneIngredient(results) {
     const oneIngredient = results.reduce((ingredients, recipe) => {
         recipe.ingredients.forEach(ingredient => {
-            const isIngredient = ingredients.find(item => item.toLowerCase() === ingredient.toLowerCase());
+            const isIngredient = ingredients.find(item => item.toLowerCase() === ingredient.ingredient.toLowerCase());
             if (!isIngredient) {
-                ingredients.push(ingredient.toLowerCase());
+                ingredients.push(ingredient.ingredient.toLowerCase());
             }
         });
         return ingredients;
