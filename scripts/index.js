@@ -129,8 +129,19 @@ function totalRecipes() {
     // dropdownContainer.appendChild(containerCount)
 }
 
+// Function hover
+document.addEventListener('DOMContentLoaded', function () {
+    const recipeDescs = document.querySelectorAll('.recipe-desc');
+    const cardDescs = document.querySelectorAll('.card-container');
 
+    recipeDescs.forEach((recipeDesc, index) => {
+        recipeDesc.addEventListener('mouseover', () => {
+            cardDescs[index].style.height = '860px';
+        });
 
+        recipeDesc.addEventListener('mouseout', () => {
+            cardDescs[index].style.height = '';
+        });
+    });
 
-
-
+});

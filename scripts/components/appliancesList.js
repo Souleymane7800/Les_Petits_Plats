@@ -22,15 +22,13 @@ function getOneAppliance(results) {
     return oneAppliances;
 };
 
-
-
 const appliancesList = document.querySelector('#appareil-list');
 
 appliancesList.innerHTML = '';
 
 if (selectedFilter.children.length === 0 && results.length === 0) {
 
-    console.log('selectedfilter',selectedFilter);
+    // console.log('selectedfilter',selectedFilter);
     allAppliances.forEach(appliance => {
     const applianceElement = document.createElement('li');
     applianceElement.textContent = appliance;

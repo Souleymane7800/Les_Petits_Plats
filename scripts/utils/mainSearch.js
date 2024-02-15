@@ -28,8 +28,8 @@ function handleSearch() {
   
     if (inputUser.length >= 3) {
         selectedOptions = []; // à vérifier
-        console.log('mainsearch', selectedOptions);
-  
+        // console.log('mainsearch', selectedOptions);
+        console.log('selectedoptionsmainsearch=========',selectedOptions);
         results = recipes.filter(recipe => {
             // à vérifier
             const findInTitle = recipe.name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(inputUser);
@@ -39,8 +39,6 @@ function handleSearch() {
             return findInTitle || findInIngredients || findInDescription;
         });
   
-        console.log(results);
-        //filterAndSortAvailableItems(results)
         updateFilterSearch(results);
         totalRecipes(results);
         displayAllRecipes(results);
@@ -63,8 +61,8 @@ function filterRecipes(selectedOptions) {
         });
     });;
     updateFilterSearch(results)
-    displayAllRecipes(results)
     totalRecipes(results)
+    displayAllRecipes(results)
 };
 
 function getAvailableItemsByType(results, itemType) {
@@ -115,8 +113,6 @@ function getAvailableItemsByType(results, itemType) {
                 }
             }
         }
-  
-        console.log(`${itemType} ========================`, itemList);
         return items;
     }, []);
   
@@ -124,20 +120,26 @@ function getAvailableItemsByType(results, itemType) {
     return availableItems;
 };
 
+// Fonction pour enlever l'item sélectionné de la liste
+const removeItemFromArray = (array, itemToRemove) => array.filter(item => item !== itemToRemove);
 
+// Fonction pour supprimer les éléments sélectionnés d'une liste
+const removeSelectedItems = (items, selectedOptions) => items.filter(item => !selectedOptions.includes(item));
+
+// Fonction pour mettre à jour les listes avec les éléments disponibles
+const updateFilterLists = (oneIngredients, oneUstensils, oneAppliances) => {
+    updateFilterList(ingredientList, removeSelectedItems(oneIngredients, selectedOptions));
+    updateFilterList(ustensilsList, removeSelectedItems(oneUstensils, selectedOptions));
+    updateFilterList(appliancesList, removeSelectedItems(oneAppliances, selectedOptions));
+    totalRecipes(results);
+    displayAllRecipes(results);
+};
 
 // Fonction pour mettre à jour le contenu des listes avec les éléments disponibles
-function updateFilterLists(oneIngredients, oneUstensils, oneAppliances) {
-    updateFilterList(ingredientList, oneIngredients);
-    updateFilterList(ustensilsList, oneUstensils);
-    updateFilterList(appliancesList, oneAppliances);
-};
-  
-// Fonction pour mettre à jour une liste spécifique
 function updateFilterList(listContainer, items) {
     // Effacez le contenu actuel de la liste
-      listContainer.innerHTML = '';
-  
+    listContainer.innerHTML = '';
+
     // Ajoutez les éléments disponibles à la liste
     items.forEach(item => {
         const listItem = document.createElement('li');
@@ -147,32 +149,33 @@ function updateFilterList(listContainer, items) {
         };
         listContainer.appendChild(listItem);
     });
-};
-
+}
 
 function updateFilterSearch(results) {
-    console.log('Je rentre dans update');
+    console.log('Je rentre dans updateFilterSearch avec les résultats suivants :', results);
 
     const oneIngredients = getAvailableItemsByType(results, 'ingredients');
     const oneUstensils = getAvailableItemsByType(results, 'ustensils');
     const oneAppliances = getAvailableItemsByType(results, 'appliance');
 
-    console.log('oneIngredients:', oneIngredients);
-    console.log('oneUstensils:', oneUstensils);
-    console.log('oneAppliances:', oneAppliances);
+    // console.log('oneIngredients:', oneIngredients);
+    // console.log('oneUstensils:', oneUstensils);
+    // console.log('oneAppliances:', oneAppliances);
 
     const filterContainers = [ingredientList, ustensilsList, appliancesList];
-    console.log('filterContainers:', filterContainers);
+    // console.log('filterContainers:', filterContainers);
 
     // Mettre à jour le contenu des listes
     updateFilterLists(oneIngredients, oneUstensils, oneAppliances);
+    // Mettre à jour le total des recettes
+    totalRecipes(results);
 
     selectedOptions.forEach(filter => {
         const findInIngredient = oneIngredients.includes(filter);
         const findInUstensil = oneUstensils.includes(filter);
         const findInAppliance = oneAppliances.includes(filter);
 
-        console.log(`Filter: ${filter}, Found in Ingredients: ${findInIngredient}, Found in Ustensils: ${findInUstensil}, Found in Appliances: ${findInAppliance}`);
+        console.log(`Filter: ${filter}, Trouvé dans Ingredients: ${findInIngredient}, Trouvé dans Ustensils: ${findInUstensil}, Trouvé dans Appliances: ${findInAppliance}`);
     });
 };
   
