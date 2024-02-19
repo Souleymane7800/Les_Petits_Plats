@@ -17,6 +17,7 @@ function toggleSelectedOption(tagselected) {
 
         // listener pour la suppression au clic sur le cloneTag
         cloneTag.addEventListener('click', function() {
+            console.log('clonetag');
             filterOptionsDiv.removeChild(tagContainer);
             // Retirer l'élément sélectionné correspondant de la liste
             selectedOptions = selectedOptions.filter(item => item !== tagselected);
@@ -45,7 +46,4 @@ function toggleSelectedOption(tagselected) {
     console.log('selectedOptions', selectedOptions);
     console.log('tagselected', tagselected);
     filterRecipes(selectedOptions);
-    // totalRecipes();
 }
-
-// export { toggleSelectedOption, selectedOptions }

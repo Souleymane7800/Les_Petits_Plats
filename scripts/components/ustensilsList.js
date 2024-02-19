@@ -31,7 +31,7 @@ ustensilsList.innerHTML = '';
 
 if (selectedFilter.children.length === 0 && results.length === 0) {
 
-      console.log('selectedfilter',selectedFilter);
+      // console.log('selectedfilter',selectedFilter);
       allUstensils.forEach(ustensil => {
             const ustensilElement = document.createElement('li');
             ustensilElement.textContent = ustensil;
