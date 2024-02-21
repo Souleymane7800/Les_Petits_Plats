@@ -58,28 +58,21 @@
 
 
             </section>
-            <!-- a verifier -->
+            <!-- PARTIE FILTRE -->
             <section class="filter-container">
                   <div class="container-fluid mt-5">
                         <div class="dropdown-container">
 
                               <!-- Dropdown Ingrédients -->
                               <div class="dropdown-ingredient dropdown">
-                                    <div class="dropdown-ingredient-visible d-flex justify-content-between dropdown-toggle"
-                                          data-bs-toggle="dropdown">
+                                    <div
+                                          class="dropdown-ingredient-visible d-flex justify-content-between dropdown-toggle">
                                           <h2>Ingrédients</h2>
-                                          <!-- <svg id="dropdownArrowIng" xmlns="http://www.w3.org/2000/svg" width="15"
-                                          height="15"
-                                                viewBox="0 0 512 512">
-                                                <path
-                                                      d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
-                                          </svg> -->
                                           <svg id="dropdownArrowIng" xmlns="http://www.w3.org/2000/svg" width="15"
                                                 height="8" viewBox="0 0 15 8" fill="none">
                                                 <path d="M1 1L7.5 7L14 1" stroke="#1B1B1B" stroke-linecap="round" />
                                           </svg>
                                     </div>
-                                    <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> -->
                                     <div class="ingredient-input-container">
                                           <input type="text" class="ingredient-input" id="ingredient-input"
                                                 tabindex="-1">
@@ -90,76 +83,65 @@
                                                       stroke="#7A7A7A" stroke-width="0.5" />
                                           </svg>
                                     </div>
-                                    <!-- test -->
-                                    <!-- <div class="ingredient-selected"></div> -->
                                     <div class="ingredient-list" id="ingredient-list"></div>
-                                    <!-- </div> -->
                               </div>
 
                               <!-- Dropdown Appareils -->
                               <div class="dropdown-appareil dropdown">
-                                    <div class="dropdown-appareil-visible d-flex justify-content-between dropdown-toggle"
-                                          data-bs-toggle="dropdown">
+                                    <div
+                                          class="dropdown-appareil-visible d-flex justify-content-between dropdown-toggle">
                                           <h2>Appareils</h2>
                                           <svg id="dropdownArrowApp" xmlns="http://www.w3.org/2000/svg" width="15"
                                                 height="8" viewBox="0 0 15 8" fill="none">
                                                 <path d="M1 1L7.5 7L14 1" stroke="#1B1B1B" stroke-linecap="round" />
                                           </svg>
                                     </div>
-                                    <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> -->
-                                          <div class="appareil-input-container">
-                                                <input type="text" class="appareil-input" id="appareil-input"
-                                                      tabindex="-1">
-                                                <svg class="glass-icon" xmlns="http://www.w3.org/2000/svg" width="14"
-                                                      height="14" viewBox="0 0 14 14" fill="none">
-                                                      <circle cx="5" cy="5" r="4.75" stroke="#7A7A7A"
-                                                            stroke-width="0.5" />
-                                                      <line x1="9.17678" y1="9.32322" x2="13.6768" y2="13.8232"
-                                                            stroke="#7A7A7A" stroke-width="0.5" />
-                                                </svg>
-                                          </div>
-                                          <div class="appareil-list" id="appareil-list"></div>
-                                    <!-- </div> -->
+                                    <div class="appareil-input-container">
+                                          <input type="text" class="appareil-input" id="appareil-input" tabindex="-1">
+                                          <svg class="glass-icon" xmlns="http://www.w3.org/2000/svg" width="14"
+                                                height="14" viewBox="0 0 14 14" fill="none">
+                                                <circle cx="5" cy="5" r="4.75" stroke="#7A7A7A" stroke-width="0.5" />
+                                                <line x1="9.17678" y1="9.32322" x2="13.6768" y2="13.8232"
+                                                      stroke="#7A7A7A" stroke-width="0.5" />
+                                          </svg>
+                                    </div>
+                                    <div class="appareil-list" id="appareil-list"></div>
                               </div>
 
                               <!-- Dropdown Ustensils -->
                               <div class="dropdown-ustensil dropdown">
-                                    <div class="dropdown-ustensil-visible d-flex justify-content-between dropdown-toggle"
-                                          data-bs-toggle="dropdown">
+                                    <div
+                                          class="dropdown-ustensil-visible d-flex justify-content-between dropdown-toggle">
                                           <h2>Ustensiles</h2>
                                           <svg id="dropdownArrowUst" xmlns="http://www.w3.org/2000/svg" width="15"
                                                 height="8" viewBox="0 0 15 8" fill="none">
                                                 <path d="M1 1L7.5 7L14 1" stroke="#1B1B1B" stroke-linecap="round" />
                                           </svg>
                                     </div>
-                                    <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> -->
-                                          <div class="ustensil-input-container">
-                                                <input type="text" class="ustensil-input" id="ustensil-input"
-                                                      tabindex="-1">
-                                                <svg class="glass-icon" xmlns="http://www.w3.org/2000/svg" width="14"
-                                                      height="14" viewBox="0 0 14 14" fill="none">
-                                                      <circle cx="5" cy="5" r="4.75" stroke="#7A7A7A"
-                                                            stroke-width="0.5" />
-                                                      <line x1="9.17678" y1="9.32322" x2="13.6768" y2="13.8232"
-                                                            stroke="#7A7A7A" stroke-width="0.5" />
-                                                </svg>
-                                          </div>
-                                          <div class="ustensil-list" id="ustensil-list"></div>
-                                    <!-- </div> -->
+                                    <div class="ustensil-input-container">
+                                          <input type="text" class="ustensil-input" id="ustensil-input" tabindex="-1">
+                                          <svg class="glass-icon" xmlns="http://www.w3.org/2000/svg" width="14"
+                                                height="14" viewBox="0 0 14 14" fill="none">
+                                                <circle cx="5" cy="5" r="4.75" stroke="#7A7A7A" stroke-width="0.5" />
+                                                <line x1="9.17678" y1="9.32322" x2="13.6768" y2="13.8232"
+                                                      stroke="#7A7A7A" stroke-width="0.5" />
+                                          </svg>
+                                    </div>
+                                    <div class="ustensil-list" id="ustensil-list"></div>
                               </div>
-
                         </div>
                   </div>
+                  <!-- h2 a verifier (hidden) -->
                   <div class="total-container">
                         <h2 id="total-recipes"></h2>
                   </div>
             </section>
 
-            <!-- Affichage des recettes -->
+            <!-- Affichage des TAGS -->
             <div id="filter-options" class="filter-selected">
             </div>
+            <!-- RECIPES -->
             <section id="recipeSection" class="recipeSection">
-                  <!-- <ul id="recipeList" class="recipeList d-flex flex-wrap" width="1440"></ul> -->
             </section>
       </main>
       <!-- Chargement des scripts -->

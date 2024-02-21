@@ -70,7 +70,7 @@ body {
 }
 
 #search-input {
-      /* a verifier */
+      /* a verifier et terminer la mise en page border*/
       color: #7A7A7A;
       font-family: "Manrope", sans-serif;
       font-size: clamp(0.9rem, 1vw, 16px);
@@ -85,6 +85,7 @@ body {
       white-space: nowrap;
       display: flex;
       align-items: center;
+      padding-left: 10px;
 }
 
 #search-close {
@@ -161,7 +162,7 @@ body {
       position: relative;
 }
 
-/* TESTE INPUT ET LISTE*/
+/* INPUT ET LISTE*/
 .ingredient-input-container,
 .appareil-input-container,
 .ustensil-input-container {
@@ -177,9 +178,8 @@ body {
       background: #FFF;
       place-items: center;
       display: flex;
-      /* test */
       width: 188px;
-      top: 79%;
+      top: 80%;
 }
 
 .ingredient-input,
@@ -206,8 +206,7 @@ body {
       display: none;
       overflow-y: auto;
       overflow-x: hidden;
-      /* padding: 5px; */
-      padding: 40px 0 0 0;
+      padding: 50px 0 0 0;
       max-height: 500px;
 }
 
@@ -227,11 +226,9 @@ li {
       font-family: 'Manrope', sans-serif;
       font-size: 14px;
       font-weight: 400;
-      /* a verifier */
       line-height: normal;
       height: 25px;
       color: #1B1B1B;
-      /* test */
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -247,7 +244,6 @@ li:hover {
       width: 188px;
 }
 
-/* a verifier */
 .dropdownArrowIng,
 .dropdownArrowApp,
 .dropdownArrowUst {
@@ -288,7 +284,6 @@ li:hover {
       border-radius: 21px;
       background: #FFF;
       box-shadow: 0px 4px 34px 30px rgba(0, 0, 0, 0.04);
-      /* test */
       position: relative;
       width: 380px;
       height: 731px;
@@ -398,22 +393,15 @@ li:hover {
       line-height: normal;
 }
 
-/* test */
-.desc-container {
-      border: 2px solid blue;
-}
-
 /* TAGSELECTED */
 .filter-selected {
       display: flex;
       flex-wrap: wrap;
       gap: 40px;
       padding: 10px;
-      /* justify-content: space-around; */
 }
 
 .tagSelected {
-      /* width: 141px; */
       max-width: 203px;
       height: 53px;
       background: #FFD15B;
@@ -421,7 +409,6 @@ li:hover {
       display: flex;
       justify-content: space-around;
       align-items: center;
-      
       padding: 17px 18px 17px 18px;
       gap: 12px;
 }
@@ -429,15 +416,8 @@ li:hover {
 .tagSelected span {
       font-family: 'Manrope', sans-serif;
       font-size: 14px;
-      /* width: 150px; */
 }
 
-/* test */
 .show {
-      display: block;
+      display: block ;
 }
-/* .selected {
-      background-color: #e0e0e0;
-      font-weight: bold;
-
-} */

@@ -1,17 +1,15 @@
 
-// Déclaration de la variable searchInput
+// Déclaration de variable
 let searchInput;
 let searchClose;
 let results = [];
 let selectedOptions = [];
-// let selectedFilter;
 
 // AddEventListener sur DOM
 document.addEventListener('DOMContentLoaded', function () {
     displayAllRecipes(recipes);
     totalRecipes(recipes);
 })
-
 
 // Afficher toute les recettes
 function displayAllRecipes(results) {
@@ -56,7 +54,6 @@ function createRecipeCard(recipe, index) {
     cardName.classList.add('recipe-name');
     cardName.textContent = recipe.name;
     // Container description
-    // const containerFrame
     // Recette
     const recette = document.createElement( 'h3' );
     recette.classList.add('recipe-desc-title');
@@ -98,7 +95,6 @@ function createRecipeCard(recipe, index) {
     descContainer.appendChild(recipeDesc);
     containerDescText.appendChild(recette);
     containerDescText.appendChild(recipeDesc);
-    // recette.appendChild(recipeDesc)
     containerDescText.appendChild(ingredient);
     containerDescText.appendChild(ingredientRecipe);
     article.appendChild(image);
@@ -121,13 +117,12 @@ function totalRecipes() {
     let recipesCount;
 
     if (totalOfRecipes === 0) {
-        recipesCount = 'Aucune recette n\a été trouvée'
+        recipesCount = `Aucune recette ne correspond à votre recherche "${searchInput.value}"`
     } else {
         recipesCount = totalOfRecipes === 1 ? 'recette' : 'recettes';
     }
     containerCount.textContent = totalOfRecipes === 0 ? recipesCount : `${totalOfRecipes} ${recipesCount}`;
-    // dropdownContainer.appendChild(containerCount)
-}
+};
 
 // Function hover
 document.addEventListener('DOMContentLoaded', function () {
@@ -143,5 +138,4 @@ document.addEventListener('DOMContentLoaded', function () {
             cardDescs[index].style.height = '';
         });
     });
-
 });
