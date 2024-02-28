@@ -50,13 +50,9 @@
                                           <circle cx="10" cy="10.4219" r="9.5" stroke="white" />
                                           <line x1="18.3536" y1="19.0683" x2="27.3536" y2="28.0683" stroke="white" />
                                     </svg>
-
                               </div>
-
                         </div>
                   </div>
-
-
             </section>
             <!-- PARTIE FILTRE -->
             <section class="filter-container">
@@ -76,6 +72,12 @@
                                     <div class="ingredient-input-container">
                                           <input type="text" class="ingredient-input" id="ingredient-input"
                                                 tabindex="-1">
+                                          <svg id="input-reset-ing" xmlns="http://www.w3.org/2000/svg" width="8"
+                                                height="8" viewBox="0 0 17 17" fill="none">
+                                                <path d="M15 15L8.5 8.5M8.5 8.5L2 2M8.5 8.5L15 2M8.5 8.5L2 15"
+                                                      stroke="#7A7A7A" stroke-width="2.16667" stroke-linecap="round"
+                                                      stroke-linejoin="round" />
+                                          </svg>
                                           <svg class="glass-icon" xmlns="http://www.w3.org/2000/svg" width="14"
                                                 height="14" viewBox="0 0 14 14" fill="none">
                                                 <circle cx="5" cy="5" r="4.75" stroke="#7A7A7A" stroke-width="0.5" />
@@ -98,6 +100,12 @@
                                     </div>
                                     <div class="appareil-input-container">
                                           <input type="text" class="appareil-input" id="appareil-input" tabindex="-1">
+                                          <svg id="input-reset-app" xmlns="http://www.w3.org/2000/svg" width="8"
+                                                height="8" viewBox="0 0 17 17" fill="none">
+                                                <path d="M15 15L8.5 8.5M8.5 8.5L2 2M8.5 8.5L15 2M8.5 8.5L2 15"
+                                                      stroke="#7A7A7A" stroke-width="2.16667" stroke-linecap="round"
+                                                      stroke-linejoin="round" />
+                                          </svg>
                                           <svg class="glass-icon" xmlns="http://www.w3.org/2000/svg" width="14"
                                                 height="14" viewBox="0 0 14 14" fill="none">
                                                 <circle cx="5" cy="5" r="4.75" stroke="#7A7A7A" stroke-width="0.5" />
@@ -120,6 +128,12 @@
                                     </div>
                                     <div class="ustensil-input-container">
                                           <input type="text" class="ustensil-input" id="ustensil-input" tabindex="-1">
+                                          <svg id="input-reset-ust" xmlns="http://www.w3.org/2000/svg" width="8"
+                                                height="8" viewBox="0 0 17 17" fill="none">
+                                                <path d="M15 15L8.5 8.5M8.5 8.5L2 2M8.5 8.5L15 2M8.5 8.5L2 15"
+                                                      stroke="#7A7A7A" stroke-width="2.16667" stroke-linecap="round"
+                                                      stroke-linejoin="round" />
+                                          </svg>
                                           <svg class="glass-icon" xmlns="http://www.w3.org/2000/svg" width="14"
                                                 height="14" viewBox="0 0 14 14" fill="none">
                                                 <circle cx="5" cy="5" r="4.75" stroke="#7A7A7A" stroke-width="0.5" />
@@ -131,9 +145,8 @@
                               </div>
                         </div>
                   </div>
-                  <!-- h2 a verifier (hidden) -->
                   <div class="total-container">
-                        <h2 id="total-recipes"></h2>
+                        <div id="total-recipes"></div>
                   </div>
             </section>
 
@@ -141,8 +154,8 @@
             <div id="filter-options" class="filter-selected">
             </div>
             <!-- RECIPES -->
-            <section id="recipeSection" class="recipeSection">
-            </section>
+            <div id="recipeSection" class="recipeSection">
+            </div>
       </main>
       <!-- Chargement des scripts -->
       <script src="scripts/data/recipes.js"></script>

@@ -70,7 +70,6 @@ body {
 }
 
 #search-input {
-      /* a verifier et terminer la mise en page border*/
       color: #7A7A7A;
       font-family: "Manrope", sans-serif;
       font-size: clamp(0.9rem, 1vw, 16px);
@@ -86,6 +85,8 @@ body {
       display: flex;
       align-items: center;
       padding-left: 10px;
+      border: none;
+      outline: none;
 }
 
 #search-close {
@@ -119,7 +120,6 @@ body {
 .search-icon:hover svg line {
       stroke: black;
 }
-
 
 /* DRPODOWN / TAGS */
 .dropdown-container {
@@ -179,19 +179,35 @@ body {
       place-items: center;
       display: flex;
       width: 188px;
-      top: 80%;
+      top: 79%;
 }
 
 .ingredient-input,
 .appareil-input,
 .ustensil-input {
-      width: 70%;
+      width: 83%;
       height: 35px;
+      left: 10px;
+      position: relative;
+      border: 1px solid #C6C6C6;
+      outline: none;
+      color: rgb(122, 122, 122);
+      font-weight: 400;
+      font-size: 14px;
+      font-family: 'Manrope';
 }
 
 .glass-icon {
       position: relative;
-      right: 30px;
+      right: 20px;
+}
+
+#input-reset-ing,
+#input-reset-app,
+#input-reset-ust {
+      right: 25px;
+      position: relative;
+      display: none;
 }
 
 .ingredient-list,
@@ -206,7 +222,9 @@ body {
       display: none;
       overflow-y: auto;
       overflow-x: hidden;
+      scrollbar-width: none;
       padding: 50px 0 0 0;
+      border-radius: 10px 10px;
       max-height: 500px;
 }
 
@@ -235,6 +253,7 @@ li {
       z-index: 10;
       width: 200px;
       padding-left: 16px;
+      padding-top: 2px;
       cursor: pointer;
       position: relative;
 }
@@ -261,10 +280,9 @@ li:hover {
       font-size: 21px;
       line-height: 31.61px;
       z-index: 11;
-      /* a verifier */
       position: absolute;
       top: 75%;
-      right: 15%;
+      right: 16%;
 }
 
 /* CARDS */
@@ -287,6 +305,10 @@ li:hover {
       position: relative;
       width: 380px;
       height: 731px;
+}
+
+.card-container:hover {
+      height: 860px;
 }
 
 .card-container img {
@@ -410,7 +432,8 @@ li:hover {
       justify-content: space-around;
       align-items: center;
       padding: 17px 18px 17px 18px;
-      gap: 12px;
+      gap: 40px;
+      cursor: pointer;
 }
 
 .tagSelected span {
@@ -419,5 +442,7 @@ li:hover {
 }
 
 .show {
-      display: block ;
+      display: block;
 }
+
+
