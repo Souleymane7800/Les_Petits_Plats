@@ -8,7 +8,6 @@ const allAppliances = recipes.reduce((appliances, recipe) => {
 
 // Récupérer un appareil
 function getOneAppliance(results) {
-	console.log(results);
 	const oneAppliances = results.reduce((appliances, recipe) => {
 		if (recipe.appliance) {
 			const applianceToLowercase = recipe.appliance.toLowerCase();
@@ -18,9 +17,8 @@ function getOneAppliance(results) {
 		}
 		return appliances;
 	}, []);
-	console.log('oneappliance', oneAppliances);
 	return oneAppliances;
-}
+};
 
 const appliancesList = document.querySelector('#appareil-list');
 
@@ -28,7 +26,6 @@ appliancesList.innerHTML = '';
 
 if (selectedFilter.children.length === 0 && results.length === 0) {
 
-	// console.log('selectedfilter',selectedFilter);
 	allAppliances.forEach(appliance => {
 		const applianceElement = document.createElement('li');
 		applianceElement.textContent = appliance;
@@ -48,4 +45,4 @@ if (selectedFilter.children.length === 0 && results.length === 0) {
 		};
 		appliancesList.appendChild(applianceElement);
 	});
-}
+};

@@ -1,6 +1,6 @@
 // Déclaration de variables
-searchInput = document.getElementById('search-input');
-searchClose = document.querySelector('#search-close');
+let searchInput = document.getElementById('search-input');
+let searchClose = document.querySelector('#search-close');
 
 // listener sur main input
 searchInput.addEventListener('input', function () {
@@ -37,9 +37,8 @@ searchClose.addEventListener('click', function () {
 
 //function de filtrage: mainSearch
 function handleSearch() {
-	console.log('je rentre dans mainsearch');
+
 	const inputUser = searchInput.value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, ''); // Normalisation des caractères
-	console.log('inputUser:', inputUser);
 
 	// Vérifier si la longueur de l'input est suffisante
 	if (inputUser.length >= 3) {
@@ -71,12 +70,12 @@ function handleSearch() {
 		// Mettre à jour les résultats de la recherche avec filtres
 		updateFilterSearch(results);
 		totalRecipes(results);
+		filterRecipes(selectedOptions);
 		displayAllRecipes(results);
 	} else {
-		// Affichez un message ou effectuez une autre action pour indiquer que l'input est trop court
-		console.log('La longueur de l\'input est inférieure à 3 caractères.');
+		displayAllRecipes(results)
 	}
-}
+};
 
 // ----------------------------------> Recherche par filtre et afficher le results et update
 function filterRecipes(selectedOptions) {
@@ -96,7 +95,7 @@ function filterRecipes(selectedOptions) {
 	updateFilterSearch(results);
 	totalRecipes(results);
 	displayAllRecipes(results);
-}
+};
 
 function getAvailableItemsByType(results, itemType) {
 	const itemProperties = {
@@ -148,10 +147,8 @@ function getAvailableItemsByType(results, itemType) {
 		}
 		return items;
 	}, []);
-  
-	console.log(`${itemType} available items:`, availableItems);
 	return availableItems;
-}
+};
 
 // Fonction pour enlever l'item sélectionné de la liste
 const removeItemFromArray = (array, itemToRemove) => array.filter(item => item !== itemToRemove);
@@ -164,7 +161,6 @@ const updateFilterLists = (oneIngredients, oneUstensils, oneAppliances) => {
 	updateFilterList(ingredientList, removeSelectedItems(oneIngredients, selectedOptions));
 	updateFilterList(ustensilsList, removeSelectedItems(oneUstensils, selectedOptions));
 	updateFilterList(appliancesList, removeSelectedItems(oneAppliances, selectedOptions));
-	totalRecipes(results);
 	displayAllRecipes(results);
 };
 
@@ -172,7 +168,7 @@ const updateFilterLists = (oneIngredients, oneUstensils, oneAppliances) => {
 function updateFilterList(listContainer, items) {
 	// Effacez le contenu actuel de la liste
 	listContainer.innerHTML = '';
-	console.log('updatefilterlist');
+
 	// Ajoutez les éléments disponibles à la liste
 	items.forEach(item => {
 		const listItem = document.createElement('li');
@@ -182,7 +178,7 @@ function updateFilterList(listContainer, items) {
 		};
 		listContainer.appendChild(listItem);
 	});
-}
+};
 
 function updateFilterSearch(results) {
 
@@ -192,8 +188,6 @@ function updateFilterSearch(results) {
 
 	// Mettre à jour le contenu des listes
 	updateFilterLists(oneIngredients, oneUstensils, oneAppliances);
-
-	totalRecipes(results);
-}
+};
 
 

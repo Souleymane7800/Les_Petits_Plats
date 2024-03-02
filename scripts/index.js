@@ -1,9 +1,6 @@
 
 // Déclaration de variable
-let searchInput;
-let searchClose;
 let results = [];
-let selectedOptions = [];
 
 // AddEventListener sur DOM
 document.addEventListener('DOMContentLoaded', function () {
@@ -25,8 +22,9 @@ function displayAllRecipes(results) {
 		});
 	} else {
 		console.error('Une erreur s\'est produite lors de l\'affichage des recettes.');
+		window.reload();
 	}
-}
+};
 
 // Création du dom pour les cards
 function createRecipeCard(recipe, index) {
@@ -104,7 +102,7 @@ function createRecipeCard(recipe, index) {
 	card.appendChild(article);
 
 	return card;
-}
+};
 
 // Compteur de recette
 function totalRecipes() {
@@ -121,5 +119,5 @@ function totalRecipes() {
 		recipesCount = totalOfRecipes === 1 ? 'recette' : 'recettes';
 	}
 	containerCount.textContent = totalOfRecipes === 0 ? recipesCount : `${totalOfRecipes} ${recipesCount}`;
-}
+};
 

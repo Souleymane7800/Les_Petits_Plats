@@ -1,3 +1,4 @@
+let selectedOptions = [];
 
 function toggleSelectedOption(tagselected) {
 	const filterOptionsDiv = document.getElementById('filter-options');
@@ -17,11 +18,9 @@ function toggleSelectedOption(tagselected) {
 
 		// listener pour la suppression au clic sur le cloneTag
 		cloneTag.addEventListener('click', function() {
-			console.log('clonetag');
 			filterOptionsDiv.removeChild(tagContainer);
 			// Retirer l'élément sélectionné correspondant de la liste
 			selectedOptions = selectedOptions.filter(item => item !== tagselected);
-			console.log('selectedOptions', selectedOptions);
 			filterRecipes(selectedOptions);
 		});
 
@@ -42,8 +41,5 @@ function toggleSelectedOption(tagselected) {
 		const containerToRemove = filterOptionsDiv.querySelector('div:contains("' + tagselected + '")');
 		filterOptionsDiv.removeChild(containerToRemove);
 	}
-
-	console.log('selectedOptions', selectedOptions);
-	console.log('tagselected', tagselected);
 	filterRecipes(selectedOptions);
-}
+};
