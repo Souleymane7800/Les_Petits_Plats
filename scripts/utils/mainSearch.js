@@ -86,37 +86,70 @@ function handleSearch() {
 	    	// Mettre à jour les résultats de la recherche avec filtres
 	    	updateFilterSearch(results);
 	    	totalRecipes(results);
+		filterRecipes(selectedOptions);
 	    	displayAllRecipes(results);
 	} else {
 		selectedOptions = [];
 		updateFilterSearch(results);
 		totalRecipes(results);
 		filterRecipes(selectedOptions);
-		displayAllRecipes(results)
+		displayAllRecipes(results);
 	}
-}
+};
 
 // ----------------------------------> Recherche par filtre et afficher le results et update
 function filterRecipes(selectedOptions) {
-	results = recipes.filter(recipe => {
-		return selectedOptions.every(filter => {
-			if (recipe.ingredients.some(ingredient => ingredient.ingredient.toLowerCase().includes(filter.toLowerCase()))) {
-				return true;
-			} else if (recipe.appliance.toLowerCase().includes(filter.toLowerCase())) {
-				return true;
-			} else if (recipe.ustensils.some(ustensil => ustensil.toLowerCase().includes(filter.toLowerCase()))) {
-				return true;
-			} else if (recipe.name.toLowerCase().includes(filter.toLowerCase())) {
-				return true
-			} else {
-				return false;
-			}
-		});
-	});
+	let results = [];
+    
+	for (let i = 0; i < recipes.length; i++) {
+	  	let recipe = recipes[i];
+	  	let matchesFilter = true;
+    
+	  	for (let j = 0; j < selectedOptions.length; j++) {
+	    		let filter = selectedOptions[j];
+    
+	    		if (
+				!(
+		  		recipe.ingredients.some(ingredient => ingredient.ingredient.toLowerCase().includes(filter.toLowerCase())) ||
+		  		recipe.appliance.toLowerCase().includes(filter.toLowerCase()) ||
+		  		recipe.ustensils.some(ustensil => ustensil.toLowerCase().includes(filter.toLowerCase())) ||
+		  		recipe.name.toLowerCase().includes(filter.toLowerCase())
+				)
+	    		) {
+				matchesFilter = false;
+				break;
+	    		}
+	  	}
+    
+	  	if (matchesFilter) {
+	    		results.push(recipe);
+	  	}
+	}
+    
 	updateFilterSearch(results);
 	totalRecipes(results);
 	displayAllRecipes(results);
 };
+// function filterRecipes(selectedOptions) {
+// 	results = recipes.filter(recipe => {
+// 		return selectedOptions.every(filter => {
+// 			if (recipe.ingredients.some(ingredient => ingredient.ingredient.toLowerCase().includes(filter.toLowerCase()))) {
+// 				return true;
+// 			} else if (recipe.appliance.toLowerCase().includes(filter.toLowerCase())) {
+// 				return true;
+// 			} else if (recipe.ustensils.some(ustensil => ustensil.toLowerCase().includes(filter.toLowerCase()))) {
+// 				return true;
+// 			} else if (recipe.name.toLowerCase().includes(filter.toLowerCase())) {
+// 				return true
+// 			} else {
+// 				return false;
+// 			}
+// 		});
+// 	});
+// 	updateFilterSearch(results);
+// 	totalRecipes(results);
+// 	displayAllRecipes(results);
+// };
 
 function getAvailableItemsByType(results, itemType) {
 	const itemProperties = {
