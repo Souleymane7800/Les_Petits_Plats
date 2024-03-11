@@ -38,41 +38,55 @@ searchClose.addEventListener('click', function () {
 //function de filtrage: mainSearch
 function handleSearch() {
 
-	const inputUser = searchInput.value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, ''); // Normalisation des caractères
-
+	const inputUser = searchInput.value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  
 	// Vérifier si la longueur de l'input est suffisante
 	if (inputUser.length >= 3) {
-		// Ajouter l'input utilisateur aux options sélectionnées
-		selectedOptions.push(inputUser);
+	    	// Ajouter l'input utilisateur aux options sélectionnées
+	    	selectedOptions.push(inputUser);
 
-		// Filtrer les recettes en fonction de l'input et des options sélectionnées (tags)
-		let results = recipes.filter(recipe => {
-			const findInTitle = recipe.name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').includes(inputUser);
-			const findInIngredients = recipe.ingredients.some(ingredient => ingredient.ingredient.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').includes(inputUser));
-			const findInDescription = recipe.description.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').includes(inputUser);
-
-			return findInTitle || findInIngredients || findInDescription;
-			
-			// S'il y a des options sélectionnées, filtrer davantage par tags
-		});
-		if (selectedOptions.length > 0) {
-			results = results.filter(recipe => {
-				return selectedOptions.every(filter => {
-					const findInIngredients = recipe.ingredients.some(ingredient => ingredient.ingredient.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').includes(filter.toLowerCase()));
-					const findInAppliance = recipe.appliance.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').includes(filter.toLowerCase());
-					const findInUstensils = recipe.ustensils.some(ustensil => ustensil.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').includes(filter.toLowerCase()));
+	    	// Filtrer les recettes en fonction de l'input et des options sélectionnées (tags)
+	    	let results = [];
+	    	for (const recipe of recipes) {
+		  	const findInTitle = recipe.name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(inputUser);
+		  	const findInIngredients = recipe.ingredients.some(ingredient => ingredient.ingredient.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(inputUser));
+		  	const findInDescription = recipe.description.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(inputUser);
+  
+		  	if (findInTitle || findInIngredients || findInDescription) {
+				results.push(recipe);
+		  	}
+	    	}
+  
+	    	// S'il y a des options sélectionnées, filtrer davantage par tags
+	    	if (selectedOptions.length > 0) {
+		  	const filteredResults = [];
+		  	for (const recipe of results) {
+				let allFiltersMatch = true;
+	    
+				for (const filter of selectedOptions) {
+			    		const findInIngredients = recipe.ingredients.some(ingredient => ingredient.ingredient.toLowerCase().includes(filter.toLowerCase()));
+			    		const findInAppliance = recipe.appliance.toLowerCase().includes(filter.toLowerCase());
+			    		const findInUstensils = recipe.ustensils.some(ustensil => ustensil.toLowerCase().includes(filter.toLowerCase()));
 					const findInTitle = recipe.name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').includes(filter.toLowerCase());
+	    
+			    		if (!(findInIngredients || findInAppliance || findInUstensils || findInTitle)) {
+				  		allFiltersMatch = false;
+				  		break;
+			    		}
+				}
+	    
+				if (allFiltersMatch) {
+			    		filteredResults.push(recipe);
+				}
+			}
 
-					return findInIngredients || findInAppliance || findInUstensils || findInTitle;
-				});
-			});
-		}
-		// Mettre à jour les résultats de la recherche avec filtres
-		updateFilterSearch(results);
-		totalRecipes(results);
-		filterRecipes(selectedOptions);
-		displayAllRecipes(results);
-
+		  	results = filteredResults;
+	    	}
+  
+	    	// Mettre à jour les résultats de la recherche avec filtres
+	    	updateFilterSearch(results);
+	    	totalRecipes(results);
+	    	displayAllRecipes(results);
 	} else {
 		selectedOptions = [];
 		updateFilterSearch(results);
@@ -80,7 +94,7 @@ function handleSearch() {
 		filterRecipes(selectedOptions);
 		displayAllRecipes(results)
 	}
-};
+}
 
 // ----------------------------------> Recherche par filtre et afficher le results et update
 function filterRecipes(selectedOptions) {
