@@ -47,7 +47,7 @@ function handleSearch() {
 
 	    	// Filtrer les recettes en fonction de l'input et des options sélectionnées (tags)
 	    	let results = [];
-	    	for (const recipe of recipes) {
+	    	for (let recipe of recipes) {
 		  	const findInTitle = recipe.name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(inputUser);
 		  	const findInIngredients = recipe.ingredients.some(ingredient => ingredient.ingredient.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(inputUser));
 		  	const findInDescription = recipe.description.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(inputUser);
@@ -55,7 +55,7 @@ function handleSearch() {
 		  	if (findInTitle || findInIngredients || findInDescription) {
 				results.push(recipe);
 		  	}
-	    	}
+	    	};
   
 	    	// S'il y a des options sélectionnées, filtrer davantage par tags
 	    	if (selectedOptions.length > 0) {
@@ -85,16 +85,17 @@ function handleSearch() {
   
 	    	// Mettre à jour les résultats de la recherche avec filtres
 	    	updateFilterSearch(results);
-	    	totalRecipes(results);
 		filterRecipes(selectedOptions);
 	    	displayAllRecipes(results);
+	    	totalRecipes(results);
 	} else {
 		selectedOptions = [];
-		updateFilterSearch(results);
-		totalRecipes(results);
-		filterRecipes(selectedOptions);
-		displayAllRecipes(results);
+		resetPage();
 	}
+};
+
+function resetPage() {
+	displayAllRecipes(recipes)
 };
 
 // ----------------------------------> Recherche par filtre et afficher le results et update
@@ -130,26 +131,6 @@ function filterRecipes(selectedOptions) {
 	totalRecipes(results);
 	displayAllRecipes(results);
 };
-// function filterRecipes(selectedOptions) {
-// 	results = recipes.filter(recipe => {
-// 		return selectedOptions.every(filter => {
-// 			if (recipe.ingredients.some(ingredient => ingredient.ingredient.toLowerCase().includes(filter.toLowerCase()))) {
-// 				return true;
-// 			} else if (recipe.appliance.toLowerCase().includes(filter.toLowerCase())) {
-// 				return true;
-// 			} else if (recipe.ustensils.some(ustensil => ustensil.toLowerCase().includes(filter.toLowerCase()))) {
-// 				return true;
-// 			} else if (recipe.name.toLowerCase().includes(filter.toLowerCase())) {
-// 				return true
-// 			} else {
-// 				return false;
-// 			}
-// 		});
-// 	});
-// 	updateFilterSearch(results);
-// 	totalRecipes(results);
-// 	displayAllRecipes(results);
-// };
 
 function getAvailableItemsByType(results, itemType) {
 	const itemProperties = {
