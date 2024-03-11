@@ -6,11 +6,11 @@ let searchClose = document.querySelector('#search-close');
 searchInput.addEventListener('input', function () {
 	if (searchInput.value) {
 		searchClose.style.display = 'block';
+		handleSearch();
+		totalRecipes();
 	} else {
 		searchClose.style.display = 'none';
 	}
-	handleSearch();
-	totalRecipes();
 });
 
 searchClose.addEventListener('click', function () {
@@ -52,27 +52,32 @@ function handleSearch() {
 			const findInDescription = recipe.description.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').includes(inputUser);
 
 			return findInTitle || findInIngredients || findInDescription;
+			
+			// S'il y a des options sélectionnées, filtrer davantage par tags
 		});
-
-		// S'il y a des options sélectionnées, filtrer davantage par tags
 		if (selectedOptions.length > 0) {
 			results = results.filter(recipe => {
 				return selectedOptions.every(filter => {
-					const findInIngredients = recipe.ingredients.some(ingredient => ingredient.ingredient.toLowerCase().includes(filter.toLowerCase()));
-					const findInAppliance = recipe.appliance.toLowerCase().includes(filter.toLowerCase());
-					const findInUstensils = recipe.ustensils.some(ustensil => ustensil.toLowerCase().includes(filter.toLowerCase()));
+					const findInIngredients = recipe.ingredients.some(ingredient => ingredient.ingredient.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').includes(filter.toLowerCase()));
+					const findInAppliance = recipe.appliance.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').includes(filter.toLowerCase());
+					const findInUstensils = recipe.ustensils.some(ustensil => ustensil.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').includes(filter.toLowerCase()));
+					const findInTitle = recipe.name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').includes(filter.toLowerCase());
 
-					return findInIngredients || findInAppliance || findInUstensils;
+					return findInIngredients || findInAppliance || findInUstensils || findInTitle;
 				});
 			});
 		}
-
 		// Mettre à jour les résultats de la recherche avec filtres
 		updateFilterSearch(results);
 		totalRecipes(results);
 		filterRecipes(selectedOptions);
 		displayAllRecipes(results);
+
 	} else {
+		selectedOptions = [];
+		updateFilterSearch(results);
+		totalRecipes(results);
+		filterRecipes(selectedOptions);
 		displayAllRecipes(results)
 	}
 };
@@ -87,6 +92,8 @@ function filterRecipes(selectedOptions) {
 				return true;
 			} else if (recipe.ustensils.some(ustensil => ustensil.toLowerCase().includes(filter.toLowerCase()))) {
 				return true;
+			} else if (recipe.name.toLowerCase().includes(filter.toLowerCase())) {
+				return true
 			} else {
 				return false;
 			}
